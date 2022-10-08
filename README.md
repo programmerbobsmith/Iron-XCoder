@@ -20,11 +20,11 @@ This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Dev
 	- **[Added]** A new OS function category was added.
 	- **[Added]** var_Sto function.   
 
-– **version 1.2** (old builds)
-- **build date:** August 13, 2022 8:00 PM CT
-- **[FIX]** Problem with gfx_PrintDouble printing negative numbers is fixed
-- **[FIX]** Added math functions category
-- **[FIX]** Added a factorial function
+- **version 1.2** (old builds)
+	- **build date:** August 13, 2022 8:00 PM CT
+	- **[FIX]** Problem with gfx_PrintDouble printing negative numbers is fixed
+	- **[FIX]** Added math functions category
+	- **[FIX]** Added a factorial function
 
 - **version 1.0** (first release and old builds)
 	- **build date:** August 10, 2022 4:29 PM CT
