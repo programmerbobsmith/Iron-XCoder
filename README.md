@@ -5,7 +5,6 @@
 
 #### About   
 
-***
 
 Iron XCoder is a macOS Monterey themed toolchain for the TI-84 Plus CE, CE–T, and CE Python editions. It includes a many graphical and utility functions that are aimed at making shell/OS creations a lot easier.
 
@@ -15,20 +14,20 @@ This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Dev
 
 #### History
 
-- version 15.0 (newest fully supported release)
-	- build date: August 20, 2022 4;07 PM CT
-	- [Edit] Changed the library version to match Apple XCoder version numbering.
-	- [Added] A new OS function category was added.
-	- [Added] var_Sto function.
+- **version 15.0** (newest fully supported release)
+	- **build date:** August 20, 2022 4;07 PM CT
+	- **[Edit]** Changed the library version to match Apple XCoder version numbering.
+	- **[Added]** A new OS function category was added.
+	- **[Added]** var_Sto function.
 
-– version 1.2 (old builds)
-	- build date: August 13, 2022 8:00 PM CT
-	- [FIX] Problem with gfx_PrintDouble printing negative numbers is fixed
-	- [FIX] Added math functions category
-	- [FIX] Added a factorial function
+– **version 1.2** (old builds)
+	- **build date:** August 13, 2022 8:00 PM CT
+	- **[FIX]** Problem with gfx_PrintDouble printing negative numbers is fixed
+	- **[FIX]** Added math functions category
+	- **[FIX]** Added a factorial function
 
-- version 1.0 (first release and old builds)
-	- build date: August 10, 2022 4:29 PM CT
+- **version 1.0** (first release and old builds)
+	- **build date:** August 10, 2022 4:29 PM CT
 	- Completed the Iron XCoder toolchain
 
 
@@ -38,39 +37,39 @@ This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Dev
 
 #### Input/Output (IO) Functions
 
-> void gfx_PrintDouble(double value, unsigned int number_of_decimal_places, unsigned int text_color)
+`void gfx_PrintDouble(double value, unsigned int number_of_decimal_places, unsigned int text_color)`
 
->> Parameters:
+- Parameters:
 
->> - value: value to be displayed
+	- value: value to be displayed
 
->> - number_of_decimal_places: number of decimal places to be displayed (rounding is supported)
+	- number_of_decimal_places: number of decimal places to be displayed (rounding is supported)
 
->> - text_color: desired color of the printed number
+	- text_color: desired color of the printed number
 
->> Returns:
+- Returns:
 
->> - Does not return any value.
+	- Does not return any value.
 
->> Note: This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use gfx_SetText(x,y) to 							ensure that this function prints as desired.
+@ Note: This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use gfx_SetText(x,y) to 							ensure that this function prints as desired.
 
-> int gfx_GetInteger(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)
+`int gfx_GetInteger(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)`
 
->> Parameters:
+- Parameters:
 
->> - x: x location on the screen to display the stream of numbers
+	- x: x location on the screen to display the stream of numbers
 
->> - y: y location on the screen to display the stream of numbers
+	- y: y location on the screen to display the stream of numbers
 
->> - text_color: color of the stream of numbers
+	- text_color: color of the stream of numbers
 
->> - background_color: color of the background
+	- background_color: color of the background
 				
->> Returns:
+- Returns:
 
->> - Returns the integer typed.
+	- Returns the integer typed.
 
->> Note: This function supports positive and negative integers and deleting of text, but does not support ANY mathematical operations.
+@ Note: This function supports positive and negative integers and deleting of text, but does not support ANY mathematical operations.
 
 >> - This function supports the following Hotkeys:
 >>> - [Enter]: Ends the input process and returns the number.
