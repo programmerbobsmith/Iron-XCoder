@@ -46,6 +46,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 1. `void gfx_PrintDouble(double value, uint8_t number_of_decimal_places, uint8_t text_color)`
 > User input routine for printing a double 
+
 	- Parameters:
 		- `value`: value to be displayed
 		- `number_of_decimal_places`: number of decimal places to be displayed (rounding is supported)
@@ -58,6 +59,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 2. `int gfx_GetInteger(uint8_t x, uint8_t y, uint8_t text_color, uint8_t background_color)`
 > User input routine for getting an integer.
+
 	- Parameters:
 		- `x`: x location on the screen to display the stream of numbers
 		- `y`: y location on the screen to display the stream of numbers
@@ -77,6 +79,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 3. `double gfx_GetDouble(uint8_t x, int y, uint8_t text_color, uint8_t background_color)`
 > User input routine for getting a double.
+
 	- Parameters:
 		- `x`: x location on the screen to display the stream of numbers
 		- `y`: y location on the screen to display the stream of numbers
@@ -118,6 +121,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 		
 1. `void disp_TIProg(uint8_t x, uint8_t y, uint8_t color)`
 > Displays a list of all the TI-Basic Programs on the calculator
+
 	- Parameters:
 		- `x`: start x-position for displaying programs
 		- `y`: start y-position for displaying programs
@@ -128,6 +132,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 2. `void disp_CProg(uint8_t x, uint8_t y, uint8_t color)`
 > Displays a list of all the C/ASM programs on the calculator
+
 	- Parameters:
 		- `x`: start x-position for displaying programs
 		- `y`: start y-position for displaying programs
@@ -138,6 +143,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 3. `void disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)`
 > Displays any C/ASM sprite from any desired program
+
 	- Parameters:
 		- `prog_name`: name of C program to get sprite from
 		- `x_loc`: start x position for drawing the sprite
@@ -148,6 +154,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 4. `void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
 > Runs the desired TI-basic program
+
 	- Parameters:
 		- `x`: start x-position for displaying programs
 		- `y`: start y-position for displaying programs
@@ -165,6 +172,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 5. `void run_CProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
 > Runs the desired C or ASM program
+
 	- Parameters:
 		- `x`: start x-position for displaying programs
 		- `y`: start y-position for displaying programs
@@ -186,6 +194,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 1. `void error_banner(const char *header, const char *text, uint8_t x_loc, uint8_t y_loc, uint8_t width, uint8_t height, uint8_t background_color)`
 > Displays a error notification
+
 	- Parameters:
 		- `header`: Header text to display
 		- `text`: Error text to display
@@ -209,17 +218,18 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 >>> struct triangle
 >>>{
 >>>>double side_1;
->>>>double side_2;
->>>>double side_3;
->>>>double angle_1;
->>>>double angle_2;
->>>>double angle_3;
->>>>double perimeter;
->>>>double area;
+double side_2;
+double side_3;
+double angle_1;
+double angle_2;
+double angle_3;
+double perimeter;
+double area;
 >>>}
 
 1. `unsigned long long int fact(unsigned int num)`
 > Calculates the factorial of a number.
+
 	- Parameters:
 		- `num`: number to calculate the factorial of
 
@@ -230,6 +240,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 2. `double pythag(double leg_1, double leg_2, double hyp)`
 > Calculates the missing side of a right triangle. Put `NULL` for the variable you want solved for.
+
 	- Parameters:
 		- `leg_1`: one leg of the right triangle
 		- `leg_2`: second leg of the right triangle
@@ -263,6 +274,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 1. `void var_Sto(const char *var, float num_sto)`
 > Stores a floating point number into any OS Variable.
+
 	- Parameters:
 		- var: variable to store number in
 			- :tip: **Tip:** Include the <ti/vars.h> file in the header section and use the following defines: OS_VAR_$ where $ is any character from A-Z.
