@@ -14,7 +14,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 #### History
 
-- **version 15.1** (newest release)
+- **version 15.1** (pending release)
 	- **build date:** TBD
 	- **[Edit]** Implement code optimizations for faster functions
 	- **[Added]** Routines to display C and ASM program sprites
