@@ -6,11 +6,11 @@
 #### About   
 
 
-Iron XCoder is a macOS Monterey themed toolchain for the TI-84 Plus CE, CE–T, and CE Python editions. It includes a many graphical and utility functions that are aimed at making shell/OS creations a lot easier.
+Iron XCoder is a macOS Monterey themed library for the TI-84 Plus CE, CE–T, and CE Python editions. It includes a many graphical and utility functions that are aimed at making shell/OS creations a lot easier.
 
 #### License Information   
 
-This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Developers. If you use any part of this toolchain (in whole or in part) either through copying any portion of the toolchain or using these functions, you must credit the author and creator (Jonathan Khayat 'Bob Smith') in your readme.txt AND in your program. You must also provide the following link and text ONLY in the readme: "Check out Bob Smith's Profile: https://tinyurl.com/ProgrammerBobSmith". Copying any portion of this toolchain includes copying and editing, regardless of how different the editing renders the function.
+This library is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Developers. If you use any part of this library (in whole or in part) either through copying any portion of the toolchain or using these functions, you must credit the author and creator (Jonathan Khayat 'Bob Smith') in your README AND in your program. You must also provide the following link and text ONLY in the readme: "Check out Bob Smith's Profile: https://tinyurl.com/ProgrammerBobSmith". Copying any portion of this toolchain includes copying and editing, regardless of how different the editing renders the function.
 
 #### History
 
@@ -28,7 +28,7 @@ This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Dev
 
 - **version 1.0** (first release and old builds)
 	- **build date:** August 10, 2022 4:29 PM CT
-	- Completed the Iron XCoder toolchain
+	- Completed the Iron XCoder library
 
 
 ## API Documentation
@@ -37,78 +37,73 @@ This toolchain is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Dev
 
 #### Input/Output (IO) Functions
 
-`void gfx_PrintDouble(double value, unsigned int number_of_decimal_places, unsigned int text_color)`
+1. `void gfx_PrintDouble(double value, unsigned int number_of_decimal_places, unsigned int text_color)`
 
-- Parameters:
+	- Parameters:
+		- `value`: value to be displayed
+		- `number_of_decimal_places`: number of decimal places to be displayed (rounding is supported)
+		- `text_color`: desired color of the printed number
 
-	- value: value to be displayed
+	- Returns:
+		- Does not return any value.
 
-	- number_of_decimal_places: number of decimal places to be displayed (rounding is supported)
+	- :memo: NOTE: This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use gfx_SetText(x,y) to 							ensure that this function prints as desired.
 
-	- text_color: desired color of the printed number
+2. `int gfx_GetInteger(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)`
 
-- Returns:
+	- Parameters:
+		- `x`: x location on the screen to display the stream of numbers
+		- `y`: y location on the screen to display the stream of numbers
+		- `text_color`: color of the stream of numbers	
+		- `background_color`: color of the background
 
-	- Does not return any value.
+	- Supported Hotkeys:
+		- `[Enter]`: Ends the input process and returns the number.
+		- `[Del]`: Deletes the last character.
+		- `[Clear]`: Exits the program.
+	
+	- Returns:
+		- Returns the integer typed.
 
-@ Note: This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use gfx_SetText(x,y) to 							ensure that this function prints as desired.
+	- :memo: NOTE: This function supports positive and negative integers and deleting of text, but does not support ANY mathematical operations.
 
-`int gfx_GetInteger(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)`
 
-- Parameters:
+3. `double gfx_GetDouble(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)`
+	- Parameters:
+		- x: x location on the screen to display the stream of numbers
+		- y: y location on the screen to display the stream of numbers
+		- text_color: color of the stream of numbers
+		- background_color: color of the background
 
-	- x: x location on the screen to display the stream of numbers
+	- Supported Hotkeys:
+		- `[Enter]`: Ends the input process and returns the number.
+		- `[Del]`: Deletes the last character.
+		- `[Clear]`: Exits the program.
 
-	- y: y location on the screen to display the stream of numbers
+	- Returns:
+		- Returns the decimal number (double) typed.
 
-	- text_color: color of the stream of numbers
+	– :memo: NOTE: This function supports positive and negative decimal numbers and deleting of text, but does not support ANY mathematical operations.
 
-	- background_color: color of the background
-				
-- Returns:
+4.	`int gfx_Slider(unsigned int start_x, unsigned int start_y, unsigned int step, unsigned int slider_color, unsigned int background_color, unsigned int max_entries)`
+	- Parameters:
+		- start_x: This is the x location of the first text in a list. The function performs any necessary shifting of the slider.
+		- start_y: This is the y location of the first text in a list. The function performs any necessary shifting of the slider.
+		- step: This is the distance in separation between text items in a list.
+		- slider_color: color of the slider to display
+		- background_color: background color
+		- max_entries: This is the number of items in the list.
 
-	- Returns the integer typed.
+	- Supported Hotkeys:
+		- `[Enter]`: Ends the input process and returns the number.
+		- `[Del]`: Deletes the last character.
+		- `[Clear]`: Exits the program.
 
-@ Note: This function supports positive and negative integers and deleting of text, but does not support ANY mathematical operations.
+	- Returns:
+		- Returns an integer of the slider's position in the list. The first list item is 1 and the last is max_entries.
 
->> - This function supports the following Hotkeys:
->>> - [Enter]: Ends the input process and returns the number.
->>> - [Del]: Deletes the last character.
->>> - [Clear]: Exits the program.
+	- :memo: NOTE: This function performs any necessary shifting of the slider from the text in the list.
 
-		3)	double gfx_GetDouble(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)
-				- Parameters:
-					- x: x location on the screen to display the stream of numbers
-					- y: y location on the screen to display the stream of numbers
-					- text_color: color of the stream of numbers
-					- background_color: color of the background
-
-				- Returns:
-					- Returns the decimal number (double) typed.
-
-				– Note: This function supports positive and negative decimal numbers and deleting of text, but does not support ANY mathematical operations.
-						- This function supports the following Hotkeys:
-							- [Enter]: Ends the input process and returns the number.
-							- [Del]: Deletes the last character.
-							- [Clear]: Exits the program.
-
-		4)	int gfx_Slider(unsigned int start_x, unsigned int start_y, unsigned int step, unsigned int slider_color, unsigned int background_color, unsigned int max_entries)
-				- Parameters:
-					- start_x: This is the x location of the first text in a list. The function performs any necessary shifting of the slider.
-					- start_y: This is the y location of the first text in a list. The function performs any necessary shifting of the slider.
-					- step: This is the distance in separation between text items in a list.
-					- slider_color: color of the slider to display
-					- background_color: background color
-					- max_entries: This is the number of items in the list.
-
-				- Returns:
-					- Returns an integer of the slider's position in the list. The first list item is 1 and the last is max_entries.
-
-				- Note: This function performs any necessary shifting of the slider from the text in the list.
-						- This function supports the following Hotkeys:
-							- [Enter]: Ends the input process and returns the number.
-							- [Del]: Deletes the last character.
-							- [Clear]: Exits the program.
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
