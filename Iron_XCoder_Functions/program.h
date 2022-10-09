@@ -5,10 +5,10 @@
 extern "C"{
 #endif
 
-void disp_TIProg(unsigned int x, unsigned int y, unsigned int program_text_color);
-void disp_CProg(unsigned int x, unsigned int y, unsigned int program_text_color);
-void run_TIProg(unsigned int x, unsigned int y, unsigned int slider_x, unsigned int slider_y, unsigned int slider_color, unsigned int background_color, unsigned int program_text_color, unsigned int error_mode);
-void run_CProg(unsigned int x, unsigned int y, unsigned int slider_x, unsigned int slider_y, unsigned int slider_color, unsigned int background_color, unsigned int program_text_color, unsigned int error_mode);
+void disp_TIProg(int x, int y, int program_text_color);
+void disp_CProg(int x, int y, int program_text_color);
+void run_TIProg(int x, int y, int slider_x, int slider_y, int slider_color, int background_color, int program_text_color, int error_mode);
+void run_CProg(int x, int y, int slider_x, int slider_y, int slider_color, int background_color, int program_text_color, int error_mode);
 
 #ifdef _cplusplus
 }
