@@ -8,29 +8,37 @@
 #include "error.h"
 #include "io.h"
 
-void disp_CProg_Sprite(const char *prog_name, int x_loc, int y_loc)
+void disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)
 {
 	gfx_SetDefaultPalette(gfx_8bpp);
 	uint8_t handle = ti_OpenVar(prog_name,"r",OS_TYPE_PRGM);
 	ti_SetArchiveStatus(false,handle);
 	uint8_t data;
-	ti_Seek(10,SEEK_SET,handle);
+	ti_Read(&data,sizeof(uint8_t),1,oiram);
+	ti_Rewind(oiram);
+	if(data==0x00)
+	{
+		ti_Seek(10,SEEK_SET,oiram);
+	}else
+	{
+		ti_Seek(9,SEEK_SET,oiram);
+	}
 	for(int x = 0; x<256;x++)
 	{
 		ti_Read(&data,sizeof(uint8_t),1,handle);
 		gfx_SetColor(data);
 		if (x_loc == x_loc+15)
 		{
-			y++;
+			y_loc++;
 			x_loc;
 		}
-		gfx_SetPixel(x_loc++,y);
+		gfx_SetPixel(x_loc++,y_loc);
 	}
 	ti_SetArchiveStatus(true,handle);
 	ti_Close(oiram);
 }
 
-void disp_TIProg(int x, int y, int program_text_color)
+void disp_TIProg(uint8_t x, uint8_t y, uint8_t program_text_color)
 {
 	gfx_SetTextFGColor(program_text_color);
 	char *var_name;
@@ -60,7 +68,7 @@ int launch_callbacks(void *data, int retval)
 	return main();
 }
 
-void disp_CProg(int program_text_color, int error_mode)
+void disp_CProg(uint8_t program_text_color, uint8_t error_mode)
 {
 	gfx_SetTextFGColor(program_text_color);
 	char *var_name;
@@ -80,7 +88,7 @@ void disp_CProg(int program_text_color, int error_mode)
 	}
 }
 
-void run_CProg(int x, int y, int slider_x, int slider_y, int slider_color, int background_color, int program_text_color, int error_mode)
+void run_CProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t program_text_color, uint8_t error_mode)
 {
 	gfx_SetTextFGColor(program_text_color);
 	char *var_name;
@@ -124,7 +132,7 @@ void run_CProg(int x, int y, int slider_x, int slider_y, int slider_color, int b
 
 }
 
-void run_TIProg(int x, int y, int slider_x, int slider_y, int slider_color, int background_color, int program_text_color, int error_mode)
+void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t program_text_color, uint8_t error_mode)
 {
 	gfx_SetTextFGColor(program_text_color);
 	char *var_name;
