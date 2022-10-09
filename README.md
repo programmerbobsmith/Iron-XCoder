@@ -10,7 +10,7 @@ Iron XCoder is a macOS Monterey themed library for the TI-84 Plus CE, CE–T, an
 
 #### License Information   
 
-This library is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Developers. If you use any part of this library (in whole or in part) either through copying any portion of the toolchain or using these functions, you must credit the author and creator (Jonathan Khayat 'Bob Smith') in your README AND in your program. You must also provide the following link and text ONLY in the readme: "Check out Bob Smith's Profile: https://tinyurl.com/ProgrammerBobSmith". Copying any portion of this toolchain includes copying and editing, regardless of how different the editing renders the function.
+This library is free for all TI-84 Plus CE developers. If you use any part of this library (in whole or in part) either through copying any portion of the toolchain or using these functions, you must credit the author and creator (Jonathan Khayat 'Bob Smith') in your README AND in your program. You must also provide the following link and text ONLY in the readme: "Check out Bob Smith's Profile: https://tinyurl.com/ProgrammerBobSmith". Copying any portion of this toolchain includes copying and editing, regardless of how different the editing renders the function.
 
 #### History
 
