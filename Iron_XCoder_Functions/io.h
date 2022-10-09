@@ -5,10 +5,10 @@
 extern "C"{
 #endif
 
-void gfx_PrintDouble(double value, unsigned int number_of_decimal_places, unsigned int text_color);
-int gfx_GetInteger(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color);
-double gfx_GetDouble(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color);
-int gfx_GetSlider(unsigned int start_x, unsigned int start_y, unsigned int step, unsigned int slider_color, unsigned int background_color, unsigned int max_entries);
+void gfx_PrintDouble(double value, int number_of_decimal_places, int text_color);
+int gfx_GetInteger(int x, int y, int text_color, int background_color);
+double gfx_GetDouble(int x, int y, int text_color, int background_color);
+int gfx_GetSlider(int start_x, int start_y, int step, int slider_color, int background_color, int max_entries);
 
 #ifdef _cplusplus
 }

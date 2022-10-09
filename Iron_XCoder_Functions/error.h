@@ -5,8 +5,8 @@
 extern "C"{
 #endif
 
-void error_banner(const char *header, const char *text, unsigned int location_x, unsigned int location_y, unsigned int width, unsigned int height, unsigned int background_color);
-void error_notification(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned int color);
+void error_banner(const char *header, const char *text, int location_x, int location_y, int width, int height, int background_color);
+void error_notification(int x, int y, int width, int height, int color);
 
 #ifdef _cplusplus
 }

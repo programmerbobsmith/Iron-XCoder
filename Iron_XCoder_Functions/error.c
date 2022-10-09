@@ -4,7 +4,7 @@
 #include <string.h>
 #include <sys/timers.h>
 
-void error_banner(const char *header, const char *text, unsigned int location_x, unsigned int location_y, unsigned int width, unsigned int height, unsigned int background_color)
+void error_banner(const char *header, const char *text, int location_x, int location_y, int width, int height, int background_color)
 {
 	gfx_sprite_t *notification_background = gfx_MallocSprite(width+1,height);
 	gfx_GetSprite(notification_background,location_x,location_y);
@@ -16,7 +16,7 @@ void error_banner(const char *header, const char *text, unsigned int location_x,
 }
 
 //don't use this on its own
-void error_notification(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned int color)
+void error_notification(int x, int y, int width, int height, int color)
 {
 	gfx_SetColor(color);
 	gfx_Line(x,y+4,x,y+height-4);
