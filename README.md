@@ -212,4 +212,4 @@ This library is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Devel
 		- Should not return anything.
 
 ***
-											##### Copyright October 2022. All Rights Reserved. May not be reproduced or distributed without permission.
+##### Copyright October 2022. All Rights Reserved. May not be reproduced or distributed without permission.
