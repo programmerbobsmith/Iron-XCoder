@@ -68,7 +68,7 @@ This library is free for all TI-84 Plus CE and TI-84 Plus C Silver Edition Devel
 	- :memo: NOTE: This function supports positive and negative integers and deleting of text, but does not support ANY mathematical operations.
 
 
-3. `double gfx_GetDouble(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)`
+3. `[size = 12]double gfx_GetDouble(unsigned int x, unsigned int y, unsigned int text_color, unsigned int background_color)[/size]`
 	- Parameters:
 		- x: x location on the screen to display the stream of numbers
 		- y: y location on the screen to display the stream of numbers
