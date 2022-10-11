@@ -45,7 +45,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 #### Input/Output (IO) Functions
 
 1. `void gfx_PrintDouble(double value, uint8_t number_of_decimal_places, uint8_t text_color)`
-> User input routine for printing a double 
+> User input routine for printing a double.
 
 	- Parameters:
 		- `value`: value to be displayed
@@ -120,7 +120,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 #### PROGRAM FUNCTIONS:
 		
 1. `void disp_TIProg(uint8_t x, uint8_t y, uint8_t color)`
-> Displays a list of all the TI-Basic Programs on the calculator
+> Displays a list of all the TI-Basic Programs on the calculator.
 
 	- Parameters:
 		- `x`: start x-position for displaying programs
@@ -131,7 +131,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 		- Should not return anything.
 
 2. `void disp_CProg(uint8_t x, uint8_t y, uint8_t color)`
-> Displays a list of all the C/ASM programs on the calculator
+> Displays a list of all the C/ASM programs on the calculator.
 
 	- Parameters:
 		- `x`: start x-position for displaying programs
@@ -141,19 +141,19 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 	- Returns:
 		- Should not return anything.
 
-3. `void disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)`
-> Displays any C/ASM sprite from any desired program
+3. `uint8_t disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)`
+> Displays any C/ASM sprite from any desired program.
 
 	- Parameters:
 		- `prog_name`: name of C program to get sprite from
 		- `x_loc`: start x position for drawing the sprite
 		- `y_loc`: start y position for drawing the sprite
 	- Returns:
-		- Should not return anything.
+		- If `1` is returned
 	- :warning: **Warning:** This function only draws C program 16x16 icons. ASM program icons and irregular shaped icons are not yet supported.
 
 4. `void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
-> Runs the desired TI-basic program
+> Runs the desired TI-basic program.
 
 	- Parameters:
 		- `x`: start x-position for displaying programs
@@ -171,7 +171,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 	- :warning: **Warning:** This function performs program callbacks. After running any program, callbacks will return to your main() function.
 
 5. `void run_CProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
-> Runs the desired C or ASM program
+> Runs the desired C or ASM program.
 
 	- Parameters:
 		- `x`: start x-position for displaying programs
@@ -214,18 +214,10 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 #### Math Functions:
 
 > Defines:
->> `triangle_t`
->>> struct triangle
->>>{
->>>>double side_1;
-double side_2;
-double side_3;
-double angle_1;
-double angle_2;
-double angle_3;
-double perimeter;
-double area;
->>>}
+1. `triangle_t`
+	- typedef struct triangle { double side_1; double side_2; double side_3; double angle_1; double angle_2; double_angle_3; double perimeter; double area;} triangle_t;
+2. `pi`
+	- 3.141592654
 
 1. `unsigned long long int fact(unsigned int num)`
 > Calculates the factorial of a number.
@@ -250,7 +242,7 @@ double area;
 		- The calculated value for the variable you put `NULL` for.
 
 3. `void solve_triangle(triangle_t triangle, uint8_t mode)`
-> Solves any triangle
+> Solves any triangle.
 
 	- Parameters:
 		- `triangle`: pass a triangle_t to this function.
