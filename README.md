@@ -55,7 +55,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 - Returns:
 	- Does not return any value.
 
-- :warning: **Warning:** This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use gfx_SetText(x,y) to ensure that this function prints as desired.
+- :warning: **Warning:** This function displays the number at the current gfx cursor position. If this position has not been set or updated recently, then use `gfx_SetText(x,y)` to ensure that this function prints as desired.
 
 2. `int gfx_GetInteger(uint8_t x, uint8_t y, uint8_t text_color, uint8_t background_color)`
 > User input routine for getting an integer.
@@ -150,7 +150,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 	- `y_loc`: start y position for drawing the sprite
 - Returns:
 	- If `1` is returned, the program does not have a sprite or it's size is not 16x16.
-- :warning: **Warning:** This function only draws C program 16x16 icons. ASM program icons and irregular shaped icons are not yet supported.
+- :warning: **Warning:** This function only supports C and ASM icons that are 16x16 in size (all programs I can think of have this size icon). TI-Basic and ICE icons are not supported.
 
 4. `void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
 > Runs the desired TI-basic program.
@@ -269,7 +269,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 - Parameters:
 	- var: variable to store number in
-		- :tip: **Tip:** Include the <ti/vars.h> file in the header section and use the following defines: OS_VAR_$ where $ is any character from A-Z.
+		- :tip: **Tip:** Include the <ti/vars.h> file in the header section and use the following defines: `OS_VAR_$` where `$` is any character from A-Z.
 	- num_sto: number to store in variable
 - Returns:
 	- Should not return anything.
