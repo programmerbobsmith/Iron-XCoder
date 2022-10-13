@@ -5,7 +5,7 @@
 #include <math.h>
 #include <keypadc.h>
 
-void print_Double(double value, int number_of_decimal_places, int text_color)
+void print_Double(double value, uint8_t number_of_decimal_places, uint8_t text_color)
 {
 	gfx_SetTextFGColor(text_color);
 	gfx_PrintInt((int)value,1);
@@ -18,7 +18,7 @@ void print_Double(double value, int number_of_decimal_places, int text_color)
 	gfx_PrintInt(answer,number_of_decimal_places);
 }
 
-int get_Integer(int x, int y, int text_color, int background_color)
+int get_Integer(uint8_t x, uint8_t y, uint8_t  text_color, uint8_tbackground_color)
 {
 	gfx_SetTextFGColor(text_color);
 	unsigned int key;
@@ -73,7 +73,7 @@ int get_Integer(int x, int y, int text_color, int background_color)
 	return (user_input_converted);
 }
 
-double get_Double(int x, int y, int text_color, int background_color)
+double get_Double(uint8_t x, uint8_ty, uint8_t text_color, uint8_t background_color)
 {
 	gfx_SetTextFGColor(text_color);
 	unsigned int key;
@@ -128,7 +128,7 @@ double get_Double(int x, int y, int text_color, int background_color)
 	return (user_input_converted);
 }
 
-int get_Slider(int start_x, int start_y, int step, int slider_color, int background_color, int max_entries)
+int get_Slider(uint8_t start_x, uint8_t start_y, uint8_t step, uint8_t slider_color, uint8_t background_color, uint8_t max_entries)
 {
 	unsigned int increment = 1;
 	unsigned int key;

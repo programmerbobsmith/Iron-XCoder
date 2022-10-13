@@ -4,19 +4,23 @@
 #include <string.h>
 #include <sys/timers.h>
 
-void error_banner(const char *header, const char *text, int location_x, int location_y, int width, int height, int background_color)
+void error_banner(const char *header, const char *text, uint8_t location_x, uint8_t location_y, uint8_t width, uint8_t height, uint8_t background_color)
 {
+	// allocate memory and grab background sprite of the specified location
 	gfx_sprite_t *notification_background = gfx_MallocSprite(width+1,height);
 	gfx_GetSprite(notification_background,location_x,location_y);
+	// print the actuall notification with text
 	error_notification(location_x,location_y,width,height,background_color);
 	gfx_PrintStringXY(header,location_x+6,location_y+3);
 	gfx_PrintStringXY(text,location_x+10,location_y+12);
+	// pause for 2 seconds to allow for user attention
 	msleep(2000);
+	// removes the notification by drawing the background sprite
 	gfx_Sprite(notification_background,180,20);
 }
 
-//don't use this on its own
-void error_notification(int x, int y, int width, int height, int color)
+//don't use this on its own, it just draws a box
+void error_notification(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
 	gfx_SetColor(color);
 	gfx_Line(x,y+4,x,y+height-4);

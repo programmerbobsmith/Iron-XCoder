@@ -5,37 +5,107 @@
 #include <stdint.h>
 #include <fileioc.h>
 #include <string.h>
+#include <ti/vars.h>
 #include "error.h"
 #include "io.h"
 
-void disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)
+uint8_t disp_ASMProg_Description(const char *prog_name, uint8_t xloc, uint8_t y_loc, uint8_t text_color)
 {
 	gfx_SetDefaultPalette(gfx_8bpp);
 	uint8_t handle = ti_OpenVar(prog_name,"r",OS_TYPE_PRGM);
-	ti_SetArchiveStatus(false,handle);
+	if(handle==0)
+	{
+		gfx_End();
+		return 2;
+	}
 	uint8_t data;
-	ti_Read(&data,sizeof(uint8_t),1,oiram);
-	ti_Rewind(oiram);
+	ti_Seek(2,SEEK_SET,handle);
+	ti_Read(&data,sizeof(uint8_t),1,handle);
+	ti_Rewind(handle);
 	if(data==0x00)
 	{
-		ti_Seek(10,SEEK_SET,oiram);
+		ti_Seek(7,SEEK_SET,handle);
+		ti_Read(&data,sizeof(uint8_t),1,handle);
+		if(data==0x01 || data==0x02)
+		{
+			ti_Seek(8*(data==0x02)+266*(data==0x01),SEEK_SET,handle);
+		}else
+		{
+			ti_Close(handle);
+			return 1;
+		}
+		gfx_SetTextFGColor(text_color);
+		gfx_SetTextXY(xloc,yloc);
+		while(data!=0x00)
+		{
+			ti_Read(&data,sizeof(uint8_t),1,handle);
+			gfx_PrintChar(data);
+		}
 	}else
 	{
-		ti_Seek(9,SEEK_SET,oiram);
+		ti_Close(handle);
+		return 1;
 	}
-	for(int x = 0; x<256;x++)
+	ti_Close(handle);
+	return 0;
+}
+
+uint8_t disp_ASMProg_Sprite(const char *prog_name, uint8_t x_loc, uint8_t y_loc)
+{
+	gfx_SetDefaultPalette(gfx_8bpp);
+	uint8_t handle = ti_OpenVar(prog_name,"r",OS_TYPE_PRGM);
+	if(handle==0)
 	{
-		ti_Read(&data,sizeof(uint8_t),1,handle);
-		gfx_SetColor(data);
-		if (x_loc == x_loc+15)
-		{
-			y_loc++;
-			x_loc;
-		}
-		gfx_SetPixel(x_loc++,y_loc);
+		return 2;
 	}
-	ti_SetArchiveStatus(true,handle);
-	ti_Close(oiram);
+	uint8_t data1,data2;
+	ti_Seek(2,SEEK_SET,handle);
+	ti_Read(&data1,sizeof(uint8_t),1,handle);
+	ti_Rewind(handle);
+	if(data1==0x00)
+	{
+		ti_Seek(8,SEEK_SET,handle);
+		ti_Read(&data1,sizeof(uint8_t),1,handle);
+		ti_Read(&data2,sizeof(uint8_t),1,handle);
+		ti_Rewind(oiram);
+		if (data1==0x10 && data2==0x10)
+		{
+			ti_Seek(10,SEEK_SET,handle);
+		}else
+		{
+			return 1;
+		}
+	}else if(data1==0xc3)
+	{
+		ti_Seek(7,SEEK_SET,oiram);
+		ti_Read(&data1,sizeof(uint8_t),1,handle);
+		ti_Read(&data2,sizeof(uint8_t),1,handle);
+		ti_Rewind(oiram);
+		if (data1==0x10 && data2==0x10)
+		{
+			ti_Seek(9,SEEK_SET,handle);
+		}else
+		{
+			return 1;
+		}
+	}else
+	{
+		return 1;
+	}
+	uint8_t original_xloc;
+	for(uint8_t x = 0; x<256;x++)
+	{
+		ti_Read(&data1,sizeof(uint8_t),1,handle);
+		gfx_SetColor(data1);
+		if (x == original_xloc+15)
+		{
+			yloc++;
+			xloc=original_xloc;
+		}
+		gfx_SetPixel(xloc++,yloc);
+	}
+	ti_Close(handle);
+	return 0;
 }
 
 void disp_TIProg(uint8_t x, uint8_t y, uint8_t program_text_color)
