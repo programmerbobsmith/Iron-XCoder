@@ -14,8 +14,8 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 
 #### History
 
-- **version 15.1** (pending release)
-	- **build date:** TBD
+- **version 15.1** (latest release)
+	- **build date:** October 13, 2022 12:42 AM CT
 	- **[Edit]** Implement code optimizations for faster functions
 	- **[Added]** Routines to display C and ASM program sprites
 	- **[Added]** Routine to calculate legs/hypotenuse of a right triangle
