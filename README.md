@@ -145,14 +145,34 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 > Displays any C/ASM sprite from any desired program.
 
 - Parameters:
-	- `prog_name`: name of C program to get sprite from
+	- `prog_name`: name of C/ASM program to get sprite from
 	- `x_loc`: start x position for drawing the sprite
 	- `y_loc`: start y position for drawing the sprite
+
 - Returns:
+	- `0` is returned upon success.
 	- If `1` is returned, the program does not have a sprite or it's size is not 16x16.
+	- If `2` is returned, the program could not be found. Check spelling/whether the program is on the calculator.
+
 - :warning: **Warning:** This function only supports C and ASM icons that are 16x16 in size (all programs I can think of have this size icon). TI-Basic and ICE icons are not supported.
 
-4. `void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
+4. `uint8_t disp_ASMProg_Description(const char *prog_name, uint8_t xloc, uint8_t yloc, uint8_t text_color)`
+> Displays any C/ASM description from any desired program.
+
+- Parameters:
+	- `prog_name`: name of C/ASM program to get description from
+	- `x_loc`: start x position for drawing the description
+	- `y_loc`: start y position for drawing the description
+	- `text_color`: color of the text of the description
+
+- Returns:
+	- `0` is returned upon success.
+	- If `1` is returned, the program does not have a description.
+	- If `2` is returned, the program could not be found. Check spelling/whether the program is on the calculator.
+
+- :warning: **Warning:** This function only supports C and ASM descriptions. TI-Basic and ICE descriptions are not supported.
+
+5. `void run_TIProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
 > Runs the desired TI-basic program.
 
 - Parameters:
@@ -170,7 +190,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 				
 - :warning: **Warning:** This function performs program callbacks. After running any program, callbacks will return to your main() function.
 
-5. `void run_CProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
+6. `void run_CProg(uint8_t x, uint8_t y, uint8_t slider_x, uint8_t slider_y, uint8_t slider_color, uint8_t background_color, uint8_t text_color, uint8_t error_mode)`
 > Runs the desired C or ASM program.
 
 - Parameters:
