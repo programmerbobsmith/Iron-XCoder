@@ -22,7 +22,7 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 	- **[Added]** Routine to solve any triangle
 
 - **version 15.0** (first fully supported release)
-	- **build date:** August 20, 2022 4;07 PM CT
+	- **build date:** August 20, 2022 4:07 PM CT
 	- **[Edit]** Changed the library version to match Apple XCoder version numbering.
 	- **[Added]** A new OS function category was added.
 	- **[Added]** var_Sto function.   
