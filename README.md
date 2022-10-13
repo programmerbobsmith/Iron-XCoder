@@ -295,4 +295,4 @@ This library is free for all TI-84 Plus CE developers. If you use any part of th
 	- Should not return anything.
 
 ***
-##### Copyright October 2022. All Rights Reserved. May not be reproduced or distributed without permission.
+##### Copyright October 2022.
